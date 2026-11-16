@@ -5,6 +5,7 @@ import {
   countLeadingSystemMessages,
   findSplitIndex,
   folderName,
+  foldRepeatedLines,
   isSafeCut,
   prefixHash,
   renderTranscript,
@@ -44,6 +45,32 @@ function toolConversation() {
 }
 
 describe("safe compaction", () => {
+  it("folds contiguous repetitions while preserving exceptions and gaps", () => {
+    const row = (n: number) => `Entry ${n}: reference 403, delivery confirmed`;
+    const receipt = "The warehouse signed the receipt.";
+    const input = [
+      row(7),
+      row(8),
+      row(9),
+      row(10),
+      "11: refused",
+      row(12),
+      row(14),
+      receipt,
+      receipt,
+      receipt,
+    ];
+    expect(foldRepeatedLines(input.join("\n"))).toBe(
+      [
+        "Entry [7..10]: reference 403, delivery confirmed",
+        "11: refused",
+        row(12),
+        row(14),
+        "[3 identical lines] " + receipt,
+      ].join("\n"),
+    );
+  });
+
   it("never cuts between an MCP request and its result", () => {
     const messages = toolConversation();
     expect(isSafeCut(messages, 2)).toBe(false);
@@ -155,10 +182,40 @@ describe("safe compaction", () => {
     });
 
     expect(result.chunksTotal).toBeGreaterThan(1);
-    expect(result.summary).not.toBe("");
+    // Short partials already fit together: preserve every part without a
+    // generated merge that might erase or rewrite later decisions.
+    expect(prompts).toHaveLength(result.chunksSummarized);
+    expect(result.summary.split("\n\n")).toHaveLength(result.chunksTotal);
+    expect(new Set(result.summary.split("\n\n"))).toEqual(
+      new Set(cache.values()),
+    );
     expect(outputCaps.every((cap) => cap === 256)).toBe(true);
     expect(prompts.every((prompt) => Math.ceil(prompt.length / 4) < 2048)).toBe(
       true,
     );
+  });
+
+  it("retains qualifiers following a uniquely quoted opening sentence", async () => {
+    const source = {
+      respond: () =>
+        Promise.resolve({ content: "- The inspection is complete." }),
+    } as unknown as TokenSource;
+    const text = "The inspection is complete. Only room B may reopen.";
+    const result = await summarize(
+      source,
+      Chat.from([{ role: "user", content: text }]).getMessagesArray(),
+      {
+        signal: new AbortController().signal,
+        cache: {
+          get: () => Promise.resolve(undefined),
+          set: () => Promise.resolve(),
+        },
+        chunkTokens: 512,
+        rawContextTokens: 2048,
+        countTokens: (message) =>
+          Promise.resolve(Math.ceil(message.getText().length / 4)),
+      },
+    );
+    expect(result.summary).toBe("- " + text);
   });
 });

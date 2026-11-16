@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Bascule d’un catalogue",
+    "question": "Quel service peut basculer, quelles mesures le justifient, qui autorise la suite et dans quelles conditions faut-il revenir en arrière ?",
+    "dialogue": [
+      [
+        "Nous préparons le transfert du catalogue des pièces détachées entre deux entrepôts. Le site de Lyon doit continuer à servir les commandes pendant toute la répétition. La direction parle déjà d'un lancement national mais je voudrais que tu distingues le périmètre du pilote de ce qu'on pourra vraiment généraliser.",
+        "La fiche de lancement mentionne seulement le catalogue en lecture de Lyon. Les réservations de stock passent encore par l'ancien service et les agences voisines n'ont pas été invitées à l'essai. Je vais donc suivre séparément les demandes reçues, la réponse du catalogue et les mouvements de stock."
+      ],
+      [
+        "Le premier export contient des articles supprimés depuis février. La colonne visible dans le tableur n'est pas la référence métier, c'est une étiquette imprimée sur le carton. Deux emballages peuvent donc porter le même texte sans que cela révèle un doublon dans la base. Comment vérifier la correspondance ?",
+        "J'ai rapproché les lignes sur le couple fournisseur et référence interne. Les emballages recyclés expliquent les collisions visuelles. Le fichier de rapprochement reste dans le dossier de recette parce que le service achats veut contrôler les anciennes références avant leur réutilisation."
+      ],
+      [
+        "Pendant la réunion de mardi, on avait proposé de couper les écritures à dix-neuf heures. L'équipe du soir vient de signaler que les retours arrivent précisément à cette heure. Oublie ce créneau pour l'instant. Nous pouvons essayer la consultation en parallèle sans interrompre les retours.",
+        "Le répartiteur envoie une copie des lectures au candidat et conserve la réponse historique pour le client. Les écritures de retour suivent leur route habituelle. Les comparaisons arrivent dans une file distincte pour que les retards de traitement ne ralentissent pas l'accueil au comptoir."
+      ],
+      [
+        "Le responsable qualité a trouvé des écarts sur les pièces vendues au mètre. Dans la première capture, les quantités semblaient entières. Avant de changer le stockage, j'aimerais savoir si le détail manquait déjà dans la source ou si notre interface de contrôle l'a perdu à l'affichage.",
+        "Les valeurs fractionnaires existent dans les deux exports. C'est le format d'affichage du tableau de contrôle qui arrondissait les décimales. Après correction de cette vue, les écarts sur le câble disparaissent. Nous n'avons modifié aucune fiche article pour arriver à ce résultat."
+      ],
+      [
+        "J'ai reçu deux chiffres de latence dans le compte rendu et personne ne sait lequel sert à prendre la décision. Une moyenne sur les consultations internes ne renseigne pas sur le temps d'attente des clients quand une pièce rare doit être recherchée sur un autre rayon.",
+        "Le relevé retenu porte sur le 95e percentile côté client. Il descend de 420 à 280 millisecondes pour le catalogue en lecture à Lyon. Les requêtes servies depuis le cache du navigateur ont été exclues des deux séries. Le rapport séparé sur les réservations reste vide."
+      ],
+      [
+        "Il manque le détail des écarts que l'équipe accepte de tolérer. Certaines photos produits sont mises à jour après les textes et ne devraient pas faire échouer le pilote. En revanche, annoncer une pièce disponible alors que le rayon est vide oblige l'agence à rappeler le client.",
+        "La grille distingue les différences de présentation des différences de disponibilité. Un écart sur une photo ouvre une tâche éditoriale. Une divergence sur la disponibilité compte dans le seuil de retour arrière, même si l'opérateur réussit à trouver une pièce de substitution."
+      ],
+      [
+        "Nous avions écrit dans le brouillon que le technicien de garde pouvait décider seul d'ouvrir le trafic. Ce n'est plus la décision issue de l'atelier avec les agences. Le technicien doit pouvoir arrêter un essai immédiatement, mais l'autorisation de l'étendre appartient à une autre personne.",
+        "Samira autorise l'extension du trafic après lecture du rapport signé par l'agence. L'astreinte garde le droit d'interrompre l'essai sans attendre son accord. Pour aujourd'hui, Samira a donné son feu vert uniquement pour les consultations à Lyon, sans autorisation sur les réservations."
+      ],
+      [
+        "La démonstration du retour arrière a semé la confusion. Le graphique montrait une pointe rouge de quelques secondes, puis tout redevenait normal. Je ne veux pas que cette seule pointe déclenche un arrêt général si on l'observe à nouveau pendant la pause déjeuner.",
+        "La règle validée est de revenir à l'ancien catalogue si les divergences de disponibilité dépassent 2 % pendant dix minutes consécutives. Une pointe isolée reste dans le journal de suivi. Ce seuil a été approuvé pour la lecture du catalogue et n'a jamais été testé sur les écritures."
+      ],
+      [
+        "Le support demande ce qu'il doit écrire à un employé qui voit l'ancien logo sur son écran. Les postes de formation gardent une copie du site jusqu'à leur prochaine ouverture de session. Je préférerais qu'une capture du logo ne soit pas interprétée comme une preuve d'échec de la bascule.",
+        "Le guide demande de relever l'identifiant de la réponse depuis la page de diagnostic. La présence d'un logo ancien ne suffit pas à déterminer quel service a répondu. Les formateurs ont reçu le nouveau lien et garderont l'ancienne adresse pour la démonstration historique."
+      ],
+      [
+        "Avant de présenter les résultats, je veux dissiper un dernier malentendu. Les agences rurales utilisent parfois une connexion de secours très lente. Leurs relevés figurent sur la même page que Lyon mais ils proviennent d'une enquête réalisée le mois dernier avec un autre parcours utilisateur.",
+        "La légende actuelle sépare les relevés terrain des mesures de la répétition. Aucune agence rurale n'a participé au pilote. Pour comparer leurs temps de réponse, il faudra rejouer le même parcours sur leurs lignes de secours avec un accord des responsables locaux."
+      ]
+    ]
+  },
+  {
+    "name": "Exposition de céramiques",
+    "question": "Quelles œuvres peuvent voyager, à quelles conditions, qui décide pour la coupe et quel créneau de livraison est confirmé ?",
+    "dialogue": [
+      [
+        "Nous préparons le prêt de trois céramiques pour une exposition dans l'ancienne gare. L'affiche présente déjà la jarre bleue, la coupe émaillée et le vase blanc ensemble. Je voudrais organiser le transport sans prendre les choix de la graphiste pour des autorisations du musée.",
+        "L'affiche a été composée à partir d'images d'archives disponibles au début du projet. Le registre de prêt, lui, distingue les pièces proposées de celles que la régie autorise à quitter les réserves. On peut donc conserver le visuel tout en révisant la liste des objets transportés."
+      ],
+      [
+        "Le menuisier propose de mettre les trois objets dans une caisse commune pour économiser un trajet. Il a mesuré la porte principale de la gare mais pas le passage entre la réserve et la cour. La caisse pourrait entrer dans la salle tout en restant bloquée au départ.",
+        "La porte de la réserve s'ouvre vers l'intérieur et le battant réduit la largeur utile. Le menuisier prépare des berceaux séparés pour pouvoir sortir les pièces une par une. Le transporteur attendra que chaque berceau soit fermé avant de l'arrimer dans le véhicule."
+      ],
+      [
+        "Sur la jarre bleue, une marque près de l'anse ressemble à une fissure. Le cliché pris en lumière rasante est difficile à lire. Il faut éviter qu'une ombre sur une photographie fasse annuler le prêt alors que la pièce a déjà voyagé sans incident l'an dernier.",
+        "L'examen sous loupe montre une trace ancienne dans la glaçure. La restauratrice autorise le voyage de la jarre bleue à la verticale, avec un collier de mousse autour du col. Cette condition concerne la jarre seule et doit figurer sur son berceau avant le départ."
+      ],
+      [
+        "Pour les cartels, la mairie souhaite employer le nom du donateur tel qu'il apparaît dans un article de presse. La famille a toutefois demandé que le prénom usuel remplace le prénom d'état civil. J'aimerais éviter de refaire les plaques quand les invités seront déjà dans la salle.",
+        "La famille a approuvé une épreuve papier avec le prénom usuel. L'imprimeuse réserve une petite marge sur les plaques pour que la traduction reste lisible. Le catalogue scientifique gardera la forme du registre avec un renvoi vers le prénom visible sur les cartels."
+      ],
+      [
+        "La coupe émaillée pose un problème différent. Sa lèvre a été recollée à une époque où personne ne consignait le type de colle. Le conservateur estime que le trajet est court, mais la route pavée secoue beaucoup le véhicule dès qu'il quitte la place du marché.",
+        "Le prêt de la coupe reste suspendu. Seule Inès, la restauratrice, peut lever la suspension après un essai de vibration sur un moulage. Le moulage est disponible mais l'essai n'a pas eu lieu. La proposition du conservateur ne vaut donc pas accord pour emballer la coupe."
+      ],
+      [
+        "Un bénévole suggère de déplacer l'ouverture au samedi pour permettre aux scolaires de visiter l'exposition le vendredi matin. Les enseignantes préfèrent travailler avant l'arrivée de la foule, mais elles ne veulent pas découvrir les objets pendant que les techniciens ajustent encore les socles.",
+        "La médiatrice propose une visite préparatoire avec des photographies en classe. Le premier groupe entrera dans la salle seulement après la remise des clés par les techniciens. Aucun changement de vernissage n'a été annoncé et l'imprimerie conserve les cartons actuels."
+      ],
+      [
+        "Le vase blanc figure sur une liste de pièces à nettoyer avant tout mouvement. La poussière se voit surtout à l'intérieur, là où la main passe difficilement. Quel traitement la régie accepte-t-elle sans abîmer le décor mat qui longe la base du col ?",
+        "Le dépoussiérage à sec est terminé et le vase blanc est autorisé à voyager dans son berceau individuel. Le décor mat doit rester sans adhésif. Le constat photographique vient d'être signé à la réserve et une copie accompagnera la pièce jusqu'à la gare."
+      ],
+      [
+        "On m'a transmis une réservation de quai pour mardi à huit heures. Elle avait été faite avant que le marché des producteurs ne s'installe sur la place. Depuis hier, les barrières interdisent le passage des véhicules hauts tout le temps du déchargement des étals.",
+        "La régisseuse annule le mardi matin. Le seul créneau de livraison confirmé est mercredi de 14 h à 15 h, par la cour nord. Le dépôt du double des clés à la loge a été organisé avec le gardien. La rue du marché restera libre pour les producteurs."
+      ],
+      [
+        "Il reste la question de l'assurance pendant la nuit qui suit la livraison. Le courrier de l'assureur évoque une présence sur place, mais le vigile travaille dans une annexe et ne voit pas directement la salle. La mairie doit savoir si elle doit modifier son planning.",
+        "L'assureur accepte les rondes enregistrées à condition que le détecteur de la réserve soit activé entre deux passages. Le gardien a testé son badge et sait où noter une anomalie. Cette règle vise la nuit après réception et ne modifie aucune autorisation de transport."
+      ],
+      [
+        "Au moment d'envoyer les invitations, l'équipe voudrait promettre une démonstration de restauration sur la vraie coupe. Je crains que cette annonce fasse croire que le prêt est réglé. Nous avons aussi un moulage qui peut servir à montrer le geste sans déplacer l'original.",
+        "La médiatrice a choisi le moulage pour la démonstration publique. Elle précisera sur le programme qu'il s'agit d'une reproduction de travail. La régie gardera le registre des prêts à la réserve jusqu'au départ du véhicule pour y consigner toute décision tardive."
+      ]
+    ]
+  }
+]
